@@ -1,5 +1,6 @@
 import 'package:bitlife/controllers/iconColumn.dart';
 import 'package:bitlife/controllers/progressBar.dart';
+import 'package:bitlife/controllers/snackBarMessage.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const BitLifeApp());
@@ -64,32 +65,39 @@ class BitLifeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10),
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(color: Colors.white, width: 1),
-                  ),
-                  child: const Column(
-                    children: [
-                      Text(
-                        'Become a ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 8,
-                          fontWeight: FontWeight.bold,
+                // Become a Bitizen Button
+                GestureDetector(
+                  onTap: () {
+                    SnackBarMessage(
+                        context, 'Bitizen Button is Clicked', Colors.black);
+                  },
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      border: Border.all(color: Colors.white, width: 1),
+                    ),
+                    child: const Column(
+                      children: [
+                        Text(
+                          'Become a ',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'BITIZEN',
-                        style: TextStyle(
-                          color: Colors.yellow,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
+                        Text(
+                          'BITIZEN',
+                          style: TextStyle(
+                            color: Colors.yellow,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -268,8 +276,8 @@ class BitLifeScreen extends StatelessWidget {
                       ),
                       child: Expanded(
                         flex: 15,
-                        child:
-                            IconColumn(Icons.school, 'School', Colors.orange),
+                        child: IconColumn(
+                            context, Icons.school, 'School', Colors.orange),
                       ),
                     ),
                     Container(
@@ -282,7 +290,8 @@ class BitLifeScreen extends StatelessWidget {
                       ),
                       child: Expanded(
                         flex: 15,
-                        child: IconColumn(Icons.savings, 'Assets', Colors.cyan),
+                        child: IconColumn(
+                            context, Icons.savings, 'Assets', Colors.cyan),
                       ),
                     ),
 
@@ -303,8 +312,8 @@ class BitLifeScreen extends StatelessWidget {
                       ),
                       child: Expanded(
                         flex: 15,
-                        child: IconColumn(
-                            Icons.favorite, 'Relationships', Colors.cyan),
+                        child: IconColumn(context, Icons.favorite,
+                            'Relationships', Colors.cyan),
                       ),
                     ),
                     Container(
@@ -317,8 +326,8 @@ class BitLifeScreen extends StatelessWidget {
                       ),
                       child: Expanded(
                         flex: 15,
-                        child: IconColumn(
-                            Icons.more_horiz, 'Activities', Colors.cyan),
+                        child: IconColumn(context, Icons.more_horiz,
+                            'Activities', Colors.cyan),
                       ),
                     ),
                   ],
@@ -341,24 +350,30 @@ class BitLifeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: const CircleAvatar(
-                      radius: 45,
-                      backgroundColor: Colors.green,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.add, size: 50, color: Colors.white),
-                          Text(
-                            'Age',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              height: 0.5,
+                    child: GestureDetector(
+                      onTap: () {
+                        SnackBarMessage(
+                            context, 'Age Button is Clicked', Colors.black);
+                      },
+                      child: const CircleAvatar(
+                        radius: 45,
+                        backgroundColor: Colors.green,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.add, size: 50, color: Colors.white),
+                            Text(
+                              'Age',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                height: 0.5,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 15),
-                        ],
+                            SizedBox(height: 15),
+                          ],
+                        ),
                       ),
                     ),
                   ),

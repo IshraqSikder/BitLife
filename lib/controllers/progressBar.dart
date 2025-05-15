@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget ProgressBar(String label, IconData icon, Color iconColor, double value) {
+// ignore: non_constant_identifier_names
+ProgressBar(String label, IconData icon, Color iconColor, double value) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
     child: Row(
