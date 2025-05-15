@@ -26,18 +26,72 @@ class BitLifeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.red,
         iconTheme: const IconThemeData(color: Colors.white),
-        title: const Row(
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('BitLife',
+            const Text('BitLife',
                 style: TextStyle(
                     color: Colors.yellow,
-                    fontSize: 24,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold)),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Icon(Icons.star, color: Colors.yellow),
-                SizedBox(width: 5),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    border: Border.all(color: Colors.white, width: 1),
+                  ),
+                  child: const Row(
+                    children: [
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                        size: 20,
+                      ),
+                      SizedBox(width: 3),
+                      Text(
+                        '0',
+                        style: TextStyle(
+                          color: Colors.yellow,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 2),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    border: Border.all(color: Colors.white, width: 1),
+                  ),
+                  child: const Column(
+                    children: [
+                      Text(
+                        'Become a ',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 8,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'BITIZEN',
+                        style: TextStyle(
+                          color: Colors.yellow,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ],
@@ -49,20 +103,20 @@ class BitLifeScreen extends StatelessWidget {
         children: [
           Container(
             color: Colors.blue.shade50,
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // First column with an image
+                // Profile Image column
                 Image.network(
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwz3ImClVKX2w5Rzwzlu4cjGijnXMMgnryEw&s',
-                  width: 70,
-                  height: 70,
+                  width: 50,
+                  height: 50,
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(width: 10),
 
-                // Second column with two rows
+                // Profile Text column
                 const Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,17 +127,21 @@ class BitLifeScreen extends StatelessWidget {
                           Text(
                             'Luis Basio',
                             style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 18,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Roboto',
-                              color: Color.fromARGB(255, 9, 97, 169),
+                              color: Color(0xFF00569D),
                               decoration: TextDecoration.underline,
+                              decorationColor: Color(0xFF00569D),
                             ),
                           ),
                           Text(
                             '\$0',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 21, 98, 160)),
+                              color: Color(0xFF00569D),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
                           ),
                         ],
                       ),
@@ -93,12 +151,16 @@ class BitLifeScreen extends StatelessWidget {
                           Text(
                             'Elementary School Student',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 21, 98, 160)),
+                              color: Color(0xFF00569D),
+                              fontSize: 12,
+                            ),
                           ),
                           Text(
                             'Bank Balance',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 21, 98, 160)),
+                              color: Color(0xFF00569D),
+                              fontSize: 12,
+                            ),
                           ),
                         ],
                       ),
@@ -108,6 +170,7 @@ class BitLifeScreen extends StatelessWidget {
               ],
             ),
           ),
+          // Text Description column
           Expanded(
             child: SingleChildScrollView(
               child: Container(
@@ -119,7 +182,7 @@ class BitLifeScreen extends StatelessWidget {
                     Text(
                       'Age: 0 years',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 9, 97, 169),
+                        color: Color(0xFF00569D),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -137,7 +200,7 @@ class BitLifeScreen extends StatelessWidget {
                     Text(
                       'Age: 1 years',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 9, 97, 169),
+                        color: Color(0xFF00569D),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -149,7 +212,7 @@ class BitLifeScreen extends StatelessWidget {
                     Text(
                       'Age: 2 years',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 9, 97, 169),
+                        color: Color(0xFF00569D),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -166,7 +229,7 @@ class BitLifeScreen extends StatelessWidget {
                     Text(
                       'Age: 3 years',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 9, 97, 169),
+                        color: Color(0xFF00569D),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -186,7 +249,7 @@ class BitLifeScreen extends StatelessWidget {
           ),
           // Icon Columns
           Container(
-            padding: const EdgeInsets.all(10),
+            // padding: const EdgeInsets.all(5),
             color: const Color(0xFF00569D),
             child: Stack(
               clipBehavior: Clip.none,
@@ -195,13 +258,32 @@ class BitLifeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     // First 2 Icons
-                    Expanded(
-                      flex: 37,
-                      child: IconColumn(Icons.school, 'School', Colors.orange),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.blueGrey,
+                          width: 0.5,
+                        ),
+                      ),
+                      child: Expanded(
+                        flex: 15,
+                        child:
+                            IconColumn(Icons.school, 'School', Colors.orange),
+                      ),
                     ),
-                    Expanded(
-                      flex: 37,
-                      child: IconColumn(Icons.savings, 'Assets', Colors.cyan),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.blueGrey,
+                          width: 0.5,
+                        ),
+                      ),
+                      child: Expanded(
+                        flex: 15,
+                        child: IconColumn(Icons.savings, 'Assets', Colors.cyan),
+                      ),
                     ),
 
                     // Middle space for the Age button
@@ -211,34 +293,73 @@ class BitLifeScreen extends StatelessWidget {
                     ),
 
                     // Last 2 Icons
-                    Expanded(
-                      flex: 37,
-                      child: IconColumn(
-                          Icons.favorite, 'Relationships', Colors.cyan),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.blueGrey,
+                          width: 0.5,
+                        ),
+                      ),
+                      child: Expanded(
+                        flex: 15,
+                        child: IconColumn(
+                            Icons.favorite, 'Relationships', Colors.cyan),
+                      ),
                     ),
-                    Expanded(
-                      flex: 37,
-                      child: IconColumn(
-                          Icons.more_horiz, 'Activities', Colors.cyan),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.blueGrey,
+                          width: 0.5,
+                        ),
+                      ),
+                      child: Expanded(
+                        flex: 15,
+                        child: IconColumn(
+                            Icons.more_horiz, 'Activities', Colors.cyan),
+                      ),
                     ),
                   ],
                 ),
 
                 // Age Button
                 Positioned(
-                  top: -18,
-                  left: MediaQuery.of(context).size.width / 2 - 50,
-                  child: const CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.green,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.add, size: 40, color: Colors.white),
-                        Text('Age',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20)),
+                  top: -10,
+                  left: MediaQuery.of(context).size.width / 2 - 57,
+                  child: Container(
+                    padding: const EdgeInsets.all(3),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black,
+                          blurRadius: 10,
+                          offset: Offset(0, 3),
+                        ),
                       ],
+                    ),
+                    child: const CircleAvatar(
+                      radius: 45,
+                      backgroundColor: Colors.green,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.add, size: 50, color: Colors.white),
+                          Text(
+                            'Age',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              height: 0.5,
+                            ),
+                          ),
+                          SizedBox(height: 15),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -246,13 +367,13 @@ class BitLifeScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 20),
+          const SizedBox(height: 25),
           // Progress Bars
           ProgressBar('Happiness', Icons.emoji_emotions, Colors.amber, 0.71),
           ProgressBar('Health', Icons.favorite, Colors.red, 0.89),
           ProgressBar('Smarts', Icons.psychology, Colors.pink, 0.68),
           ProgressBar('Looks', Icons.wb_sunny, Colors.lightBlue, 0.33),
-          const SizedBox(height: 20),
+          const SizedBox(height: 25),
         ],
       ),
     );

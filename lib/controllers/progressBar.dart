@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 Widget ProgressBar(String label, IconData icon, Color iconColor, double value) {
   return Padding(
-    padding: const EdgeInsets.all(10),
+    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          width: 100,
+          width: 75,
           child: Text(
             label,
             textAlign: TextAlign.right,
@@ -17,29 +17,36 @@ Widget ProgressBar(String label, IconData icon, Color iconColor, double value) {
             ),
           ),
         ),
-        const SizedBox(width: 15),
+        const SizedBox(width: 5),
         Icon(icon, color: iconColor),
-        const SizedBox(width: 15),
+        // const SizedBox(width: 5),
         Stack(
           children: [
             Container(
-              width: 200,
+              width: 175,
               height: 20,
               decoration: BoxDecoration(
                 color: Colors.grey.shade300,
               ),
             ),
             Container(
-              width: 200 * value,
+              width: 175 * value,
               height: 20,
               decoration: const BoxDecoration(
                 color: Colors.green,
               ),
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.only(right: 5),
+              child: Text(
+                '${(value * 100).toInt()}%',
+                style: const TextStyle(
+                  color: Colors.white,
+                  // fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ],
         ),
-        const SizedBox(width: 10),
-        Text('${(value * 100).toInt()}%'),
       ],
     ),
   );

@@ -8,7 +8,7 @@ Widget IconColumn(IconData icon, String label, Color color) {
         child: Icon(icon, color: Colors.white),
       ),
       const SizedBox(height: 5),
-      Text(label, style: const TextStyle(color: Colors.white)),
+      Text(label, style: const TextStyle(color: Colors.white, fontSize: 9)),
     ],
   );
 }
